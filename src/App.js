@@ -23,8 +23,10 @@ export default class App extends Component {
   };
 
   onSubmit = (e) => {
+    const { name, timeZone } = this.state;
+
     e.preventDefault();
-    this.setState(prevState => {
+    name && timeZone && this.setState(prevState => {
       const { clocks, name, timeZone } = prevState;
 
       return { ...prevState, clocks: [...clocks, { name, timeZone }], name: '', timeZone: '' };

@@ -6,7 +6,6 @@ export default class Clock extends Component {
   constructor(props) {
     super(props);
     this.interval = null;
-
   }
 
   state = {
@@ -34,9 +33,10 @@ export default class Clock extends Component {
     const { name, timeZone, onRemove } = this.props;
     const { hh, mm, ss } = this.state;
     const deg = 6;
+    const offsetHours = new Date().getTimezoneOffset() / 60;
 
     const transformStyles = {
-      hh: `rotateZ(${((hh + timeZone) * 30) + (mm * deg/12)}deg)`,
+      hh: `rotateZ(${((hh + offsetHours + timeZone) * 30) + (mm * deg/12)}deg)`,
       mm: `rotateZ(${mm * deg}deg)`,
       ss: `rotateZ(${ss * deg}deg)`,
     }
