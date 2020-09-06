@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from './AddForm.module.css'
+import PropTypes from 'prop-types';
 
 const AddForm = ({ onChange, values, onSubmit }) => {
   return (
@@ -25,6 +26,12 @@ const AddForm = ({ onChange, values, onSubmit }) => {
       <button>Добавить</button>
     </form>
   );
+};
+
+AddForm.propTypes = {
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  value: PropTypes.string,
 };
 
 export default AddForm;

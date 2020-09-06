@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from './Clock.module.css';
+import PropTypes from 'prop-types';
 
 export default class Clock extends Component {
 
@@ -59,5 +60,10 @@ export default class Clock extends Component {
       </div>
     );
   }
+};
 
+Clock.propTypes = {
+  name: PropTypes.string,
+  timeZone: PropTypes.number,
+  onRemove: PropTypes.func,
 };
